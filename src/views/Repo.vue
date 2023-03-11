@@ -1,39 +1,33 @@
 <template>
-  <div>
-    {{ repo }}
-    <div>Here</div>
-  </div>
-</template>
-<script setup>
-import { defineProps, ref, computed, watch, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
-const propsData = defineProps({
-  repoData: {
-    type: Array,
-    required: true,
-    default: () => []
-  },
-  id: {
-    type: Number,
-    required: true
-  }
-})
+ <div class="container-body" >
+    <div class="item-body">
+    Repo Name : {{ repo.name }}<br />
+    ID : {{ repo.id }}<br />
+    Fork : {{ repo.forks }} times<br />
+    Visibility : {{ repo.visibility }}<br />
+    Branch : {{ repo.default_branch }}<br />
+    Created : {{ repo.created_at }}<br />
+    Url : {{ repo.html_url }}<br>
+    Clone : {{repo.clone_url}}
+  </div></div>
+  <footer class="hheader">Vue Js Exam<br> ©2023</footer>
 
-console.log(propsData.id)
+</template>
+
+<script setup>
+import { inject, computed, watchEffect } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const itemId = Number(route.params.id)
+const repoData = inject('repoData').value
 
 const repo = computed(() => {
-  return propsData.repoData.find((item) => {
-
-    console.log(item.id)
-    console.log(propsData.id)
-   return item.id === propsData.id
-  })
+  const findArr = repoData.find((item) => item.id === itemId)
+  return findArr
 })
-
-watch(repo.value, () => {
-  repoData.value = propsData.repoData
-  console.log(propsData)
+watchEffect(() => {
+  repo.value
   console.log(repo.value)
 })
-console.log(itemId)
 </script>

@@ -1,8 +1,14 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-    <router-view/>
-  </div>
-  
+<header>
+<Navigation/>
+</header>
+<h2>
+  Repo Details
+</h2>
+<router-view></router-view>
 </template>
+<script setup>
+import Navigation from '../components/Navigation.vue'
 
+
+</script>

@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import Repositories from '../views/RepositoriesView.vue'
+
 import Repo from '../views/Repo.vue'
 import WildCard from '../views/WildCard.vue'
 const router = createRouter({
@@ -11,8 +13,8 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/about',
-      name: 'about',
+      path: '/Repositories',
+      name: 'Repositories',
       component: () => import('../views/AboutView.vue'),
       
       children: [
@@ -23,6 +25,11 @@ const router = createRouter({
           props: true
         }
       ]
+    },
+    {
+      name:'Repos',
+      path:'/Repostories',
+      component: Repositories
     },
     {
       path: '/:catchAll(.*)',

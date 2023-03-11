@@ -1,44 +1,32 @@
 <template>
   <main>
     <header>
-      <div class="wrapper" v-if="isLoading" >Loading...</div>
-      <div v-else>
-        <FetchApi :repoData="repoData" />
-        <Repo :repoData="repoData" />
-      </div>
+      <Navigation />
     </header>
-    
+    <body>
+      <div class="container-body">
+        <div class="item-body">
+      <p>
+        Hey Welcome!<br />
+        To my journey as a frontend developer! I'm thrilled to share my progress so far, I've
+        learned how to create beautiful and functional websites and webApps using
+        HTML,CSS,Javascript and it's library such as React JS and Vue Js.<br />Thanks to Altschool
+        Africa for bringing me thus far. Here is my Exam project on vue.
+      </p>
+      <p>
+        <span
+          >Here is a link to My List of
+          <router-link class="alts" :to="{ name: 'Repos' }">Repositories</router-link>
+        </span>
+      </p>
+        </div>
+      </div>
+    </body>
+    <footer class="hheader">Vue Js Exam<br> ©2023</footer>
+
   </main>
 </template>
 
 <script setup>
-import FetchApi from '../components/FetchApi.vue'
-import Repo from './Repo.vue'
-import { ref, onMounted, toRef } from 'vue'
-
-const repoData = ref([])
-const isLoading = ref(false)
-const Url = `https://api.github.com/users/Jamesreally/repos`
-
-const fetchData = async () => {
-  isLoading.value = true
-  try {
-    
-  
-  const repoGet = await fetch(Url)
-  const repo = await repoGet.json()
-  repoData.value = Object.keys(repo).map((i) => repo[i])
-  console.log(repoData.value)}
-   catch (err) {
-    console.log(err)
-  } finally {
-    isLoading.value = false
-  }
-}
-
-onMounted(() => {
-  fetchData()
-  
-})
-//const repoDataProp=toRef(repoData, 'value')
+import Navigation from '../components/Navigation.vue'
 </script>
