@@ -1,28 +1,29 @@
 <template>
   <div class="" v-if="isLoading"><h2>Loading...</h2></div>
-  <div  v-else>
-    
+  <div v-else>
     <header class="header">
       <Navigation />
     </header>
-  <div class="container-repo" >
-    
-    <h3 class="repo-item" v-for="repo in reposList" :key="repo.id">
-    
+    <div class="container-repo">
+      <h3 class="repo-item" v-for="repo in reposList" :key="repo.id">
         <router-link :to="{ path: `/Repositories/${repo.id}` }">
-        <span class="router">{{ repo.name }}</span>
-      </router-link>
-      <span class="public" >{{ repo.visibility }}</span>
-      <ul><li>{{repo.default_branch}}</li></ul>
-    </h3>
-    <section class="section">
-      <button :disabled="page <= 1" @click="page--">Prev</button>
-      <button v-for="p in _Pages" :key="p.id" @click="page = p">{{ p }}</button>
-      <button :disabled="page == totalPages" @click="page++">Next</button>
-    </section>
+          <span class="router">{{ repo.name }}</span>
+        </router-link>
+        <span class="public">{{ repo.visibility }}</span>
+        <ul>
+          <li>{{ repo.default_branch }}</li>
+        </ul>
+      </h3>
+      <section class="section">
+        <button :disabled="page <= 1" @click="page--">Prev</button>
+        <button v-for="p in _Pages" :key="p.id" @click="page = p">{{ p }}</button>
+        <button :disabled="page == totalPages" @click="page++">Next</button>
+      </section>
     </div>
-    <footer class="hheader">Vue Js Exam<br> ©2023</footer>
-
+    <footer class="hheader">
+      Vue Js Exam<br />
+      ©2023
+    </footer>
   </div>
 </template>
 

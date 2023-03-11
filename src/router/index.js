@@ -3,7 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import Repositories from '../views/RepositoriesView.vue'
 
 import Repo from '../views/Repo.vue'
-import WildCard from '../views/WildCard.vue'
+import PageNotFound from '../views/PageNotFound.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -16,10 +16,10 @@ const router = createRouter({
       path: '/Repositories',
       name: 'Repositories',
       component: () => import('../views/AboutView.vue'),
-      
+
       children: [
         {
-          name:'repo',
+          name: 'repo',
           path: ':id',
           component: Repo,
           props: true
@@ -27,14 +27,14 @@ const router = createRouter({
       ]
     },
     {
-      name:'Repos',
-      path:'/Repostories',
+      name: 'Repos',
+      path: '/Repostories',
       component: Repositories
     },
     {
       path: '/:catchAll(.*)',
       name: '404',
-      component: WildCard
+      component: PageNotFound
     }
   ]
 })

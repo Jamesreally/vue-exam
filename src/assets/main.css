@@ -3,7 +3,7 @@
 #app {
   max-width: 100vw;
   min-height: 100vh;
- background-color: #0D1117;
+  background-color: #0d1117;
   font-weight: normal;
 
   color: #ffffff;
@@ -12,29 +12,23 @@
 a,
 .green {
   text-decoration: none;
-  color:rgba(68, 167, 224, 0.815);
+  color: rgba(68, 167, 224, 0.815);
   transition: 0.4s;
-  margin:5px;
+  margin: 5px;
 }
-*{
+* {
   box-sizing: border-box;
 }
-/*@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}*/
-h2{
+
+h2 {
   padding: 1rem;
 }
-@media (min-width: 720px) 
-{
-  .container-body{
-    font-size:1.2em; 
+@media (min-width: 720px) {
+  .container-body {
+    font-size: 1.2em;
   }
 
-  .container-repo{
-    font-size:1.2em; 
-    
+  .container-repo {
+    font-size: 1.2em;
   }
 }
